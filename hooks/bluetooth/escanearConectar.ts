@@ -1,7 +1,14 @@
 import { manager } from "./BLEInstanciaServico";
 import uuid from "@/constants/uuid";
 
-function escanearConectar(): void
+/** Busca pelo dispositivo bluetooth pelo
+* nome e tenta conectar e ler a caracterítica de um
+* serviço provido por ele. recebe setter instânciado
+* por um useEffect().
+* Esta função deve ser chamada por outra responsável por
+* verificar se o bluetooth está ativo.
+* */
+const escanearConectar = ( setterResposta: Function ) =>
 {
   manager.startDeviceScan(null, null, (error, device) =>
   {
@@ -27,6 +34,7 @@ function escanearConectar(): void
         .then( (characteristic)=>
         {
           console.log( characteristic.value );
+          setterResposta( characteristic.value );
         })
         .catch( ()=>
         {

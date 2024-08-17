@@ -2,11 +2,15 @@ import { manager } from "./BLEInstanciaServico";
 import { useEffect } from "react";
 import escanearConectar from "./escanearConectar";
 
-/* Verificação de atividade
+/** Verificação de atividade
 *  do bluetooth do dispositivo
-*  móvel. Depende de escanearConectar()
+*  móvel.
+*  Requer uma callback que inicie
+*  a conexão e leia os dados e
+*  um setter de um useState()
+*  para emitir os dados recebidos.
 * */
-function useBLEAtivo()
+function verificarDisponibilidadeBluetooth( iniciadorConexao: ( setterResposta: Function ) => void, setterResposta: Function  )
 {
 
   useEffect(() =>
@@ -15,7 +19,7 @@ function useBLEAtivo()
     {
       if (state === 'PoweredOn')
       {
-        escanearConectar();
+        escanearConectar( setterResposta );
         subscription.remove();
       }
     }, true);
@@ -23,7 +27,8 @@ function useBLEAtivo()
   return () => subscription.remove();
   }, [manager]);
 
+
   return;
 }
 
-export default useBLEAtivo;
+export default verificarDisponibilidadeBluetooth;
