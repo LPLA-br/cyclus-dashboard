@@ -1,9 +1,9 @@
-import { Stack } from "expo-router";
+import { Stack, Slot } from "expo-router";
 
 export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="index" />
-    </Stack>
+       <Stack screenOptions={{ headerStyle: { backgroundColor: "#ff7900" } }} >
+        <Slot />
+       </Stack>
   );
 }
