@@ -1,10 +1,10 @@
 # APLICAÇÃO EXPO PARA DASHBOARD DO CICLOCOMPUTADOR
 
-<ul>
-    <li>  </li>
-</ul>
+PROJETO EXPO DESCONTINUADO
+veja: <a href="https://github.com/LPLA-br/cyclus-dashboard-AS"> cyclus-dashboard-AS </a>
 
 Este é um projeto [Expo](https://expo.dev) criado pela ferramenta [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
 
 ## INICIANDO
 
